@@ -8,10 +8,13 @@ namespace eTickets.Models
     public class Actor
     {
         [Key]
-        public int ActorId { get; set; } 
-        public string ProfilePicture { get; set; }  
-        public string FullName { get; set; }
-        public string Bio { get; set; }      
+        public int ActorId { get; set; }
+        [Display(Name ="ProfilePictureURL")]
+        public string ProfilePicture { get; set; }
+		[Display(Name = "Full Name Actors")]
+		public string FullName { get; set; }
+		[Display(Name = "Biography")]
+		public string Bio { get; set; }      
 
         //Relationships
         public List<Actors_Movies> Actor_Movies { get; set; }
