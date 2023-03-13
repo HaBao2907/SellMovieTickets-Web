@@ -16,6 +16,7 @@
         Romance,
         ScienceFiction,
         Thriller,
-        Western
+        Western,
+        Cartoon,
     }
 }

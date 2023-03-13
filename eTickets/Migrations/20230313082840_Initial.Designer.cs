@@ -10,7 +10,7 @@ using eTickets.Data;
 namespace eTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230313071713_Initial")]
+    [Migration("20230313082840_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,7 @@ namespace eTickets.Migrations
                     b.ToTable("Actors");
                 });
 
-            modelBuilder.Entity("eTickets.Models.Actor_Movie", b =>
+            modelBuilder.Entity("eTickets.Models.Actors_Movies", b =>
                 {
                     b.Property<int>("ActorId")
                         .HasColumnType("int");
@@ -54,7 +54,7 @@ namespace eTickets.Migrations
 
                     b.HasIndex("MovieId");
 
-                    b.ToTable("Movies_Movie");
+                    b.ToTable("Actors_Movies");
                 });
 
             modelBuilder.Entity("eTickets.Models.Cinema", b =>
@@ -142,11 +142,11 @@ namespace eTickets.Migrations
                     b.ToTable("Producers");
                 });
 
-            modelBuilder.Entity("eTickets.Models.Actor_Movie", b =>
+            modelBuilder.Entity("eTickets.Models.Actors_Movies", b =>
                 {
                     b.HasOne("eTickets.Models.Actor", "Actor")
                         .WithMany("Actor_Movies")
-                        .HasForeignKey("MovieId")
+                        .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
