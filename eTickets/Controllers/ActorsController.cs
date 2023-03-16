@@ -21,9 +21,6 @@ namespace eTickets.Controllers
         }
 
         //GET : Actors/CreateNew
-        public ActionResult Create()
-        {
-            return View();
-        }
+
     }
 }
