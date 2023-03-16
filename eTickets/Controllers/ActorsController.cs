@@ -1,6 +1,10 @@
 ﻿using eTickets.Data;
 using eTickets.Data.Services;
+using eTickets.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,6 +25,9 @@ namespace eTickets.Controllers
         }
 
         //GET : Actors/CreateNew
-
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
