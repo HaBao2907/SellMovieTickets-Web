@@ -9,12 +9,16 @@ namespace eTickets.Models
     {
         [Key]
         public int ActorId { get; set; }
-        [Display(Name ="ProfilePictureURL")]
+        [Display(Name ="ProfilePicture")]
+        [Required(ErrorMessage = "Empty Picture Profile!")]
         public string ProfilePicture { get; set; }
 		[Display(Name = "Full Name Actors")]
-		public string FullName { get; set; }
+        [Required(ErrorMessage = "Empty Name Actor!")]
+        [StringLength(50, MinimumLength = 3)]
+        public string FullName { get; set; }
 		[Display(Name = "Biography")]
-		public string Bio { get; set; }      
+        [Required(ErrorMessage = "Empty Biograhpy of Actor!")]
+        public string Bio { get; set; }      
 
         //Relationships
         public List<Actors_Movies> Actor_Movies { get; set; }
