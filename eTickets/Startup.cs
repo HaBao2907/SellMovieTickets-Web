@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using eTickets.Data.Services;
 
 namespace eTickets
 {
@@ -31,8 +30,8 @@ namespace eTickets
             services.AddControllersWithViews();
 
             //Services configuration
-            services.AddScoped<IActorService, ActorService>();
-            services.AddControllersWithViews();
+            //SERVICES.ADDSCOPED<IACTORSSERVICE, ACTORSSERVICE>();
+            //SERVICES.ADDCONTROLLERSWITHVIEWS();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
