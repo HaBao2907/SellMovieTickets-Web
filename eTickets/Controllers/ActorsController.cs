@@ -20,10 +20,10 @@ namespace eTickets.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var allActors = await _context.Actors.Include(n => n.ActorId).OrderBy(n => n.FullName).ToListAsync();
-            return View(allActors);
+            var data = _context.Actors.ToList();
+            return View(data);  
         }
 
     }
