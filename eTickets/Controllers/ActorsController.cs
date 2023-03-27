@@ -41,7 +41,7 @@ namespace eTickets.Controllers
                 return View(actor);
             }
             _service.Add(actor);
-            return RedirectToAction("Index");
+            return RedirectToAction(nameof(Index));
         }
     }
 }
