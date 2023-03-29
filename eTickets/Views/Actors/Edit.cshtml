@@ -13,6 +13,7 @@
             <div class="col-md-8 offset-2">
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input name="ActorId" type="hidden" value="@Model.ActorId" />
 
                     <div class="form-group text-center">
                         <img id="ProfilePicturePreview" class="border-info rounded-circle" style="max-width: 150px" />

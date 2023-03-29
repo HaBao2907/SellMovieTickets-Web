@@ -23,7 +23,7 @@ namespace eTickets.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var data = await _service.GetAll();
+            var data = await _service.GetAllAsync();
             return View(data);
         }
 
@@ -34,13 +34,43 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("FullName,ProfilePicture,Bio")]Actor actor)
+        public async Task<IActionResult> Create ([Bind("FullName,ProfilePicture,Bio")]Actor actor)
         {
-            if(ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
                 return View(actor);
             }
-            _service.Add(actor);
+            await _service.AddAsync(actor);
+            return RedirectToAction(nameof(Index));
+        }
+
+        //Get: Actors/Detail/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var actorDetails = await _service.GetByIdAsync(id);
+            if(actorDetails == null)
+            {
+                return View("NotFound");
+            }          
+            return View(actorDetails);
+        }
+
+        //Get: Actors/Update
+        public async Task<IActionResult> Edit(int id)
+        {
+            var actorDetails = await _service.GetByIdAsync(id);
+            if (actorDetails == null) return View("NotFound");
+            return View(actorDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+            await _service.UpdateAsync(actor);
             return RedirectToAction(nameof(Index));
         }
     }
