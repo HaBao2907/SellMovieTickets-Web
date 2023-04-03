@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-   public class ActorsService
+   public class ActorsService : IActorService
     {
         private readonly AppDbContext _context;
         public ActorService(AppDbContext context)
