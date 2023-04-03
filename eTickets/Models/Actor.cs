@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
+using eTickets.Data.Base;
+
 namespace eTickets.Models
 {
-    public class Actor
+    public class Actor : IEntityBase
     {
         [Key]
         public int ActorId { get; set; }

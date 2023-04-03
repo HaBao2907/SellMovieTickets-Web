@@ -1,4 +1,5 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data.Base;
+using eTickets.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,15 +7,7 @@ using System.Threading.Tasks;
 
 namespace eTickets.Data.Services
 {
-    public interface IActorService
+    public interface IActorService : IEntityBaseRepository<Actor>
     {
-        Task<IEnumerable<Actor>> GetAllAsync();
-
-        //Method
-        Task<Actor> GetByIdAsync(int id);
-        Task AddAsync(Actor actor);
-        Task<Actor> UpdateAsync(Actor actor);  
-        Task DeleteAsync(int id);
-
     }
 }
