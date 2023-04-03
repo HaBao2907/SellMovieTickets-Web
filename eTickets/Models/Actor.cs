@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
-using eTickets.Data.Base;
 
 namespace eTickets.Models
 {
