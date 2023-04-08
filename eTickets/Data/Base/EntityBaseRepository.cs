@@ -19,6 +19,7 @@ namespace eTickets.Data.Base
             await _context.Set<T>().AddAsync(entity);
             await _context.SaveChangesAsync();
         }
+        //Delete Method
         public async Task DeleteAsync(int id)
         {
             var entity = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
@@ -27,12 +28,12 @@ namespace eTickets.Data.Base
             await _context.SaveChangesAsync();
 
         }
-        //Showlist/ Actor Method
+        //Showlist Method
         public async Task<IEnumerable<T>> GetAllAsync() => await _context.Set<T>().ToListAsync();          
 
-        //Get Id Actor Method
+        //Get Id  Method
         public async Task<T> GetByIdAsync(int id) => await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);
-
+        //Get Update 
         public async Task UpdateAsync(T entity)
         {
             EntityEntry entityEntry = _context.Entry<T>(entity);
